@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+
+    </style>
+
+    <section class="hero-wrap hero-wrap-2 js-fullheight"
+             style="background-image:url({% static 'images/xbg_1.jpg.pagespeed.ic.7wX3e-PeJV.jpg' %})"
+             data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+                <div class="col-md-9 ftco-animate pb-5 text-center">
+                    <h1 class="mb-3 bread">Contact us</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i
+                            class="ion-ios-arrow-forward"></i></a></span> <span>About <i
+                            class="ion-ios-arrow-forward"></i></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ftco-section contact-section">
+        <div class="container">
+            <div class="row d-flex mb-5 contact-info">
+                <div class="col-md-12 mb-4">
+                    <h2 class="h3">Contact Information</h2>
+                </div>
+                <div class="w-100"></div>
+                <div class="col-md-3">
+                    <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+                </div>
+                <div class="col-md-3">
+                    <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                </div>
+                <div class="col-md-3">
+                    <p><span>Email:</span> <a
+                            href="https://preview.colorlib.com/cdn-cgi/l/email-protection#660f080009261f091314150f12034805090b"><span
+                            class="__cf_email__"
+                            data-cfemail="f39a9d959cb38a9c8681809a8796dd909c9e">[email&#160;protected]</span></a></p>
+                </div>
+                <div class="col-md-3">
+                    <p><span>Website</span> <a href="#">yoursite.com</a></p>
+                </div>
+            </div>
+            {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+            <div class="row block-9 no-gutters" id="contact">
+                <div class="col-lg-6 order-md-last d-flex">
+                    <form method="post" class="bg-light p-4 p-md-5 contact-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {#                        <input type="text" class="form-control" placeholder="Your Name">#}
+                            {{ form.name }}
+                        </div>
+                        <div class="form-group">
+                            {#                        <input type="text" class="form-control" placeholder="Your Email">#}
+                            {{ form.email }}
+                        </div>
+                        <div class="form-group">
+                            {#                        <input type="text" class="form-control" placeholder="Subject">#}
+                            {{ form.subject }}
+                        </div>
+                        <div class="form-group">
+                            {#                        <textarea name="" id="" cols="30" rows="7" class="form-control"#}
+                            {#                                  placeholder="Message"></textarea>#}
+                            {{ form.message }}
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6 d-flex">
+                    <div id="" class="bg-white">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1781.6141816960017!2d69.32505122010183!3d41.32395985899218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef4fa98f543e1%3A0x70c3b5d7a121cddf!2sUNT!5e0!3m2!1sen!2s!4v1649861304367!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
